@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.cognixia.jump.model.Orders;
 import com.cognixia.jump.repository.OrdersRepository;
+import com.cognixia.jump.service.ProducerService;
 
 @RestController
 @RequestMapping("/api/orders")
@@ -17,10 +18,15 @@ public class OrdersController {
 	@Autowired
 	OrdersRepository repo;
 	
+	@Autowired
+	ProducerService service;
+	
 	@PostMapping("/create")
 	public ResponseEntity<Orders> createOrders(@RequestBody Orders order) {
 		
 		repo.save(order);
+		
+		service.produce(order);
 		
 		return ResponseEntity.status(200).body(order);
 		
