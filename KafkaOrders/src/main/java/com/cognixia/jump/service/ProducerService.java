@@ -10,13 +10,13 @@ import com.cognixia.jump.model.Orders;
 public class ProducerService {
 	
 	@Autowired
-	KafkaTemplate<String, Orders> template;
+	private KafkaTemplate<String, Orders> template;
 	
 	public void produce(Orders order) {
 		
 		System.out.println("Producing order: " + order);
 		
-		template.send("Order", order);
+		template.send("Orders", order);
 		
 	}
 

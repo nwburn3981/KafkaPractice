@@ -24,9 +24,9 @@ public class OrdersController {
 	@PostMapping("/create")
 	public ResponseEntity<Orders> createOrders(@RequestBody Orders order) {
 		
-		repo.save(order);
+		Orders newOrder = repo.save(order);
 		
-		service.produce(order);
+		service.produce(newOrder);
 		
 		return ResponseEntity.status(200).body(order);
 		

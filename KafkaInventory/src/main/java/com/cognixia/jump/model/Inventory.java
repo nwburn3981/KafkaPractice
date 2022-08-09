@@ -25,6 +25,10 @@ public class Inventory implements Serializable{
 	
 	@Column
 	private int quantity;
+	
+	public Inventory() {
+		this(null, "N/A", 0, 0);
+	}
 
 	public Inventory(Integer id, String item, double price, int quantity) {
 		super();

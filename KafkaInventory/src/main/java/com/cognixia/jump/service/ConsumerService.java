@@ -25,7 +25,6 @@ public class ConsumerService {
 		
 		repo.save(inv);
 		
-		
 	}
 
 }
